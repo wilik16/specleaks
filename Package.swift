@@ -11,7 +11,7 @@ let package = Package(
         .library(name: "SpecLeaks", targets: ["SpecLeaks"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/Quick/Nimble", from: "10.0.0"),
+        .package(url: "https://github.com/wilik16/Nimble", from: "10.1.0"),
         .package(url: "https://github.com/Quick/Quick", from: "5.0.1"),
     ],
     targets: [     

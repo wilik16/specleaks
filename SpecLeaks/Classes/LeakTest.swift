@@ -35,7 +35,7 @@ public struct LeakTest {
         return leaked != nil
     }
 
-    internal func isLeaking<P>( when action: (P) -> Any) -> PredicateStatus where P: AnyObject {
+    internal func isLeaking<P>( when action: (P) -> Any) -> MatcherStatus where P: AnyObject {
         weak var leaked: AnyObject? = nil
 
         var failed = false
@@ -59,9 +59,9 @@ public struct LeakTest {
         }
 
         if failed || actionResult == nil {
-            return PredicateStatus.fail
+            return MatcherStatus.fail
         }
 
-        return PredicateStatus.init(bool: leaked != nil)
+        return MatcherStatus.init(bool: leaked != nil)
     }
 }

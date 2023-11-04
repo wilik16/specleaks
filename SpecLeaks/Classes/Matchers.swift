@@ -9,9 +9,9 @@ import Foundation
 import Quick
 import Nimble
 
-public func leak() -> Predicate<LeakTest> {
+public func leak() -> Nimble.Predicate<LeakTest> {
 
-    return Predicate.simple("leak") { expression in
+    return Nimble.Predicate.simple("leak") { expression in
 
         guard let leakTest = try expression.evaluate() else {
             return PredicateStatus.fail
@@ -21,9 +21,9 @@ public func leak() -> Predicate<LeakTest> {
     }
 }
 
-public func leakWhen<P>(_ action : @escaping (P) -> Any) -> Predicate<LeakTest> where P: AnyObject {
+public func leakWhen<P>(_ action : @escaping (P) -> Any) -> Nimble.Predicate<LeakTest> where P: AnyObject {
 
-    return Predicate.simple("leak when") { expression in
+    return Nimble.Predicate.simple("leak when") { expression in
 
         guard let leakTest = try expression.evaluate() else {
             return PredicateStatus.fail
